@@ -37,7 +37,12 @@
       "type": "string"
     },
     "pageDescription": {
-      "type": "text"
+      "type": "richtext"
+    },
+    "SocialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.shared-social-link"
     }
   }
 }

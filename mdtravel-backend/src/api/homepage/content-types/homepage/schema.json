@@ -17,16 +17,6 @@
       "repeatable": false,
       "component": "shared.shared-seo"
     },
-    "hero": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.hero"
-    },
-    "socialLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.shared-social-link"
-    },
     "mainBanner": {
       "type": "media",
       "multiple": false,
@@ -42,10 +32,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "contactButtonText": {
-      "type": "string",
-      "required": true
     }
   }
 }
