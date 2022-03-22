@@ -32,6 +32,12 @@
       "repeatable": false,
       "component": "shared.shared-seo",
       "required": true
+    },
+    "copyright": {
+      "type": "string"
+    },
+    "pageDescription": {
+      "type": "text"
     }
   }
 }

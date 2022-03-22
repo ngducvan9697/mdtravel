@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_shared_social_links",
+  "info": {
+    "displayName": "Shared.socialLinks",
+    "icon": "globe-americas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    }
+  }
+}

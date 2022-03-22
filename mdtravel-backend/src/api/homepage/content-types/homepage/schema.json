@@ -21,6 +21,31 @@
       "type": "component",
       "repeatable": false,
       "component": "sections.hero"
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.shared-social-link"
+    },
+    "mainBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subBanners": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "contactButtonText": {
+      "type": "string",
+      "required": true
     }
   }
 }
