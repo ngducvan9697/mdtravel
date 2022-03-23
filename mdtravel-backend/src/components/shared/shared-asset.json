@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_shared_assets",
+  "info": {
+    "displayName": "Shared.asset",
+    "icon": "glasses"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "source": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "statistic": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-statistic"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_shared_statistics",
+  "info": {
+    "displayName": "Shared.statistic",
+    "icon": "charging-station"
+  },
+  "options": {},
+  "attributes": {
+    "access": {
+      "type": "integer"
+    },
+    "like": {
+      "type": "integer"
+    }
+  }
+}
