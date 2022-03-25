@@ -27,6 +27,15 @@
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "category"
+    },
+    "order": {
+      "type": "integer",
+      "unique": true
+    },
+    "isMain": {
+      "type": "boolean",
+      "default": true,
+      "required": false
     }
   }
 }
