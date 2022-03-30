@@ -4,10 +4,11 @@
   "info": {
     "singularName": "personal-info",
     "pluralName": "personal-infos",
-    "displayName": "PersonalInfo"
+    "displayName": "PersonalInfo",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,15 +17,15 @@
       "required": true
     },
     "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "email": {
       "type": "string",

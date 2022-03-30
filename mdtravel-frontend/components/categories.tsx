@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 const Categories = ({ categories }) => {
-  console.log(categories);
-
   return (
     <>
       {categories.map((category, i) => {

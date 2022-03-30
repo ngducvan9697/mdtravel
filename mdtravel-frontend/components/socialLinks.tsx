@@ -2,7 +2,7 @@ import React from "react";
 
 const SocialLink = ({ socialLink }) => {
   return (
-    <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+    <span className="inline-flex sm:mt-0 mt-2 justify-center sm:justify-start">
       {socialLink?.facebook && (
         <>
           <a className="text-gray-500" href="global.socialLinks.facebook ">
