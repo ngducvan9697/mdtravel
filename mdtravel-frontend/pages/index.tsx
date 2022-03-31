@@ -1,10 +1,17 @@
 import React from "react";
 import Articles from "../components/articles";
+import Galleries from "../components/galleries";
 import Header from "../components/header";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
-const Home = ({ articles, categories, homepage, personalData }) => {
+const Home = ({
+  articles,
+  categories,
+  homepage,
+  personalData,
+  galleryData,
+}) => {
   return (
     <>
       <Seo seo={homepage.attributes.seo} />
@@ -19,19 +26,31 @@ const Home = ({ articles, categories, homepage, personalData }) => {
           </div>
         </div>
       </Header>
+      <Galleries data={galleryData} />
     </>
   );
 };
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes, personalRes] =
+  const [articlesRes, categoriesRes, homepageRes, personalRes, galleryRes] =
     await Promise.all([
       fetchAPI("/posts", { populate: ["featuredImage", "category"] }),
       fetchAPI("/categories", { populate: "*" }),
       fetchAPI("/homepage", { populate: ["mainBanner", "subBanners ", "seo"] }),
       fetchAPI("/personal-info", {
         populate: "*",
+      }),
+      fetchAPI("/galleries", {
+        populate: {
+          asset: {
+            populate: {
+              source: {
+                populate: "*",
+              },
+            },
+          },
+        },
       }),
     ]);
 
@@ -41,6 +60,7 @@ export async function getStaticProps() {
       categories: categoriesRes.data,
       homepage: homepageRes.data,
       personalData: personalRes.data,
+      galleryData: galleryRes.data,
     },
     revalidate: 1,
   };
