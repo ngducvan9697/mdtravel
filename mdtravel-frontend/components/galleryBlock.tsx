@@ -1,20 +1,21 @@
 import React from "react";
 import Image from "./image";
 
-const GalleryBlock = ({ gallery, key }) => {
-  console.log("New", gallery);
-
+const GalleryBlock = ({ asset, section, index }) => {
   let getGalleryTemplate = () => {
-    if (key !== 0 && key !== 1 && (key % 3 === 0 || (key - 1) % 3 === 0)) {
-      return "md:p-2 p-1 w-full block";
+    if (
+      (section % 2 === 0 && index === 0) ||
+      (section % 2 === 1 && index === 2)
+    ) {
+      return "md:p-2 p-1 w-full grid relative";
     }
 
-    return "md:p-2 p-1 w-1/2 block";
+    return "md:p-2 p-1 w-1/2 grid relative";
   };
 
   return (
     <div className={getGalleryTemplate()}>
-      <Image setLayout="fill" setObjectFit="cover" image={gallery} />
+      <Image setLayout="responsive" setObjectFit="cover" image={asset.source} />
     </div>
   );
 };

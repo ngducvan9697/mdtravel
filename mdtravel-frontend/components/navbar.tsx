@@ -23,7 +23,6 @@ const Navbar = ({ categories }) => {
           <div className="w-20 h-20 object-contain object-center flex-shrink-0 rounded-full">
             <NextImage image={global.favicon} />
           </div>
-          <span className="text-xl">{global.siteName}</span>
         </a>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
           <nav className="flex lg:justify-end flex-wrap items-center text-base md:ml-auto">

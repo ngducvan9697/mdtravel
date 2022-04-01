@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/react": "^17.0.40",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "next": "12.1.0",
     "qs": "^6.10.3",

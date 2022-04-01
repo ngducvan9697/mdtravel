@@ -1,26 +1,28 @@
 import React from "react";
-import Link from "next/link";
-import NextImage from "./image";
+import Image from "./image";
 
 const Card = ({ article }) => {
   return (
-    <Link href={`/article/${article.attributes.slug}`}>
-      <a className="uk-link-reset">
-        <div className="uk-card uk-card-muted">
-          <div className="uk-card-media-top">
-            <NextImage image={article.attributes.featuredImage} />
-          </div>
-          <div className="uk-card-body">
-            <p id="category" className="uk-text-uppercase">
-              {article.attributes.category.data.attributes.name}
-            </p>
-            <p id="title" className="uk-text-large">
-              {article.attributes.title}
-            </p>
-          </div>
+    <div className="xl:w-1/4 md:w-1/2 md:p-2 p-1 flex flex-auto">
+      <div className="bg-gray-100 p-6 rounded-lg w-full">
+        <div className="h-40 rounded w-full object-cover object-center mb-6 grid">
+          <Image
+            setLayout="responsive"
+            setObjectFit="cover"
+            image={article.attributes.featuredImage}
+          />
         </div>
-      </a>
-    </Link>
+        <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
+          {article.attributes.category.data.attributes.name}
+        </h3>
+        <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+          {article.attributes.title}
+        </h2>
+        <p className="leading-relaxed text-base">
+          {article.attributes.excerpt}
+        </p>
+      </div>
+    </div>
   );
 };
 

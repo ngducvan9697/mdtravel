@@ -15,7 +15,6 @@ const Image = ({
   setHeight?: any;
 }) => {
   const { alternativeText, width, height } = image.data.attributes;
-  console.log(width, height);
 
   return (
     <NextImage
