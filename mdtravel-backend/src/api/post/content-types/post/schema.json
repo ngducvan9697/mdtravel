@@ -72,9 +72,14 @@
       "repeatable": true,
       "component": "shared.shared-statistic"
     },
-    "bestInteractive": {
-      "type": "boolean",
-      "default": false
+    "postType": {
+      "type": "enumeration",
+      "enum": [
+        "NORMAL",
+        "BEST_INTERACTIVE",
+        "PIN_POST"
+      ],
+      "default": "NORMAL"
     }
   }
 }

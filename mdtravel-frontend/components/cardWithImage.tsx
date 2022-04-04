@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "./image";
 
-const Card = ({ article }) => {
+const CardWithImage = ({ article }) => {
   return (
     <div className="xl:w-1/4 md:w-1/2 md:p-2 p-1 flex flex-auto">
       <div className="bg-gray-100 p-6 rounded-lg w-full">
@@ -26,4 +26,4 @@ const Card = ({ article }) => {
   );
 };
 
-export default Card;
+export default CardWithImage;

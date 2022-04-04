@@ -1,8 +1,10 @@
 import React from "react";
-import Articles4Block from "../components/articles";
+import Articles3Block from "../components/articles3Block";
+import Articles4Block from "../components/articles4Block";
 import Galleries from "../components/galleries";
 import Header from "../components/header";
 import Layout from "../components/layout";
+import PinBlock from "../components/pinBlock";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
@@ -20,6 +22,11 @@ const Home = ({
       <Header personalData={personalData} homepage={homepage} />
       <Galleries data={galleryData} />
       <Articles4Block articles={newArticles} />
+      <Articles3Block articles={bestArticles} />
+      <PinBlock
+        article={homepage.attributes.featuredPost}
+        pinLinks={homepage.attributes.pinLinks}
+      />
     </Layout>
   );
 };
@@ -37,9 +44,9 @@ export async function getStaticProps() {
     fetchAPI("/posts", {
       populate: ["featuredImage", "category", "author", "location"],
       sort: ["createdAt"],
-      filter: {
-        bestInteractive: {
-          $ne: true,
+      filters: {
+        postType: {
+          $eq: "NORMAL",
         },
       },
       pagination: {
@@ -50,9 +57,9 @@ export async function getStaticProps() {
     fetchAPI("/posts", {
       populate: ["category", "author", "location"],
       sort: ["createdAt"],
-      filter: {
-        bestInteractive: {
-          $eq: true,
+      filters: {
+        postType: {
+          $eq: "BEST_INTERACTIVE",
         },
       },
       pagination: {
@@ -66,7 +73,8 @@ export async function getStaticProps() {
         mainBanner: { populate: "*" },
         subBanners: { populate: "*" },
         seo: { populate: "*" },
-        featuredPost: { populate: "*" },
+        pinLinks: { populate: "*" },
+        featuredPost: { populate: ["category", "author", "location"] },
       },
     }),
     fetchAPI("/personal-info", {
