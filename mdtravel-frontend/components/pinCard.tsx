@@ -3,7 +3,7 @@ import { getFullVNDate } from "../lib/date";
 
 const PinCart = ({ article }) => {
   return (
-    <div className="md:w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200">
+    <div className="md:w-2/3 md:pr-12 md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200">
       <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
         {getFullVNDate(article.data.attributes.publishedAt)}
       </p>

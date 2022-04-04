@@ -1,6 +1,7 @@
 import React from "react";
 import Articles3Block from "../components/articles3Block";
 import Articles4Block from "../components/articles4Block";
+import ContactBlock from "../components/contact";
 import Galleries from "../components/galleries";
 import Header from "../components/header";
 import Layout from "../components/layout";
@@ -27,6 +28,7 @@ const Home = ({
         article={homepage.attributes.featuredPost}
         pinLinks={homepage.attributes.pinLinks}
       />
+      <ContactBlock homepage={homepage} />
     </Layout>
   );
 };

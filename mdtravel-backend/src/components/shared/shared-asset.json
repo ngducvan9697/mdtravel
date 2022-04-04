@@ -2,7 +2,8 @@
   "collectionName": "components_shared_shared_assets",
   "info": {
     "displayName": "Shared.asset",
-    "icon": "glasses"
+    "icon": "glasses",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,6 +11,33 @@
       "type": "string"
     },
     "source": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "statistic": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-statistic"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "INTERNAL",
+        "EXTERNAL"
+      ],
+      "default": "INTERNAL"
+    },
+    "link": {
+      "type": "string"
+    },
+    "thumbnail": {
       "allowedTypes": [
         "images",
         "files",
@@ -18,11 +46,6 @@
       ],
       "type": "media",
       "multiple": false
-    },
-    "statistic": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.shared-statistic"
     }
   }
 }

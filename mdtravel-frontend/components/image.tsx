@@ -14,7 +14,7 @@ const Image = ({
   setWidth?: any;
   setHeight?: any;
 }) => {
-  const { alternativeText, width, height } = image.data.attributes;
+  const { alternativeText, width, height } = image?.data?.attributes;
 
   return (
     <NextImage
