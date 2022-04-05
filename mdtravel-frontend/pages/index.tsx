@@ -7,6 +7,7 @@ import Header from "../components/header";
 import Layout from "../components/layout";
 import PinBlock from "../components/pinBlock";
 import Seo from "../components/seo";
+import VideoSection from "../components/videosSection";
 import { fetchAPI } from "../lib/api";
 
 const Home = ({
@@ -15,13 +16,14 @@ const Home = ({
   categories,
   homepage,
   personalData,
-  galleryData,
+  galleryInternalData,
+  galleryExternalData,
 }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
       <Header personalData={personalData} homepage={homepage} />
-      <Galleries data={galleryData} />
+      <Galleries data={galleryInternalData} />
       <Articles4Block articles={newArticles} />
       <Articles3Block articles={bestArticles} />
       <PinBlock
@@ -29,6 +31,7 @@ const Home = ({
         pinLinks={homepage.attributes.pinLinks}
       />
       <ContactBlock homepage={homepage} />
+      <VideoSection data={galleryExternalData} />
     </Layout>
   );
 };
@@ -41,7 +44,8 @@ export async function getStaticProps() {
     categoriesRes,
     homepageRes,
     personalRes,
-    galleryRes,
+    galleryInternalRes,
+    galleryExternalRes,
   ] = await Promise.all([
     fetchAPI("/posts", {
       populate: ["featuredImage", "category", "author", "location"],
@@ -96,9 +100,42 @@ export async function getStaticProps() {
           },
         },
       },
+      filters: {
+        asset: {
+          type: {
+            $eq: "INTERNAL",
+          },
+        },
+      },
       pagination: {
         start: 0,
         limit: 6,
+      },
+    }),
+    fetchAPI("/galleries", {
+      populate: {
+        asset: {
+          populate: {
+            thumbnail: {
+              populate: "*",
+              pagination: {
+                start: 0,
+                limit: 1,
+              },
+            },
+          },
+        },
+      },
+      filters: {
+        asset: {
+          type: {
+            $eq: "EXTERNAL",
+          },
+        },
+      },
+      pagination: {
+        start: 0,
+        limit: 3,
       },
     }),
   ]);
@@ -110,7 +147,8 @@ export async function getStaticProps() {
       categories: categoriesRes.data,
       homepage: homepageRes.data,
       personalData: personalRes.data,
-      galleryData: galleryRes.data,
+      galleryInternalData: galleryInternalRes.data,
+      galleryExternalData: galleryExternalRes.data,
     },
     revalidate: 1,
   };
