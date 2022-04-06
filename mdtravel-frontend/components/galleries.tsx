@@ -12,9 +12,14 @@ const Galleries = ({ data }) => {
             return (
               <div key={i} className="flex flex-wrap w-1/2">
                 {galleries.map((gallery, j) => {
+                  let internal = _.find(gallery.attributes.asset, [
+                    "type",
+                    "INTERNAL",
+                  ]);
+
                   return (
                     <GalleryBlock
-                      asset={gallery.attributes.asset[0]}
+                      asset={internal}
                       key={j}
                       index={j}
                       section={i}

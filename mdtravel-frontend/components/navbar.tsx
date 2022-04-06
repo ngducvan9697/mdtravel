@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../pages/_app";
 import Categories from "./categories";
-import NextImage from "./image";
+import Image from "./image";
 import SocialLink from "./socialLinks";
 
 const Navbar = ({ categories }) => {
@@ -21,7 +21,7 @@ const Navbar = ({ categories }) => {
         </nav>
         <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
           <div className="w-20 h-20 object-contain object-center flex-shrink-0 rounded-full">
-            <NextImage image={global.favicon} />
+            <Image image={global.favicon} />
           </div>
         </a>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">

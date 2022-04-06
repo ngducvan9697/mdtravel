@@ -6,7 +6,7 @@ import _ from "lodash";
 const VideoSection = ({ data }) => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap">
+      <div className="container px-5 pt-24 mx-auto flex flex-wrap">
         <div className="mx-auto flex flex-wrap">
           {data.map((gallery, i) => {
             let external = _.find(gallery.attributes.asset, [
@@ -22,7 +22,7 @@ const VideoSection = ({ data }) => {
                   ` bg-gray-100 py-32 px-10 relative mb-4`
                 }
               >
-                <div className="w-full grid object-cover h-full object-center opacity-25 absolute inset-0">
+                <div className="w-full grid object-cover h-full object-center opacity-60 absolute inset-0">
                   <Image
                     setLayout="responsive"
                     setObjectFit="cover"

@@ -20,7 +20,7 @@ const Home = ({
   galleryExternalData,
 }) => {
   return (
-    <Layout categories={categories}>
+    <Layout categories={categories} personalData={personalData}>
       <Seo seo={homepage.attributes.seo} />
       <Header personalData={personalData} homepage={homepage} />
       <Galleries data={galleryInternalData} />

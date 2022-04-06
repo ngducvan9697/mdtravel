@@ -33,7 +33,7 @@
       "component": "shared.shared-seo",
       "required": true
     },
-    "copyright": {
+    "copyrightText": {
       "type": "string"
     },
     "pageDescription": {
@@ -48,6 +48,9 @@
       "type": "email"
     },
     "address": {
+      "type": "string"
+    },
+    "copyrightName": {
       "type": "string"
     }
   }
